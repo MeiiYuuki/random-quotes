@@ -7,6 +7,7 @@ class App extends React.Component {
   state = {
     quote: "",
     backgroundUrl: "",
+    photosBy: ""
   };
 
   componentDidMount() {
@@ -33,8 +34,10 @@ class App extends React.Component {
         "https://api.unsplash.com/photos/random/?topics=nature&content_filter=low&orientation=landscape&client_id=eECFAGsCNO4ty-Gq1L3Ing_CoLwN2pn0PvIDjbEtr6k"
       )
       .then((response) => {
+        console.log(response.data)
         this.setState({
           backgroundUrl: response.data.urls.full,
+          photosBy: response.data.user.name
         });
       })
       .catch((error) => {
@@ -57,6 +60,10 @@ class App extends React.Component {
           <button className="button" onClick={this.fetchQuote}>
             <span>I need a quote !</span>
           </button>
+        </div>
+        <div className="credits">
+            <h5>Photos by {this.state.photosBy} on</h5>
+            <a className="unsplash-tag" href="https://unsplash.com/" target="_blank">Unsplash</a>
         </div>
       </div>
     );
