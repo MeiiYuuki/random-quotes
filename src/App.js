@@ -53,7 +53,7 @@ class App extends React.Component {
         }}
       >
         <div className="card">
-          <h1 className="heading">{this.state.quote}</h1>
+          <p className="heading">{this.state.quote}</p>
           <button className="button" onClick={this.fetchQuote}>
             <span>I need a quote !</span>
           </button>
