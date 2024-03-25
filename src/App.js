@@ -7,7 +7,8 @@ class App extends React.Component {
   state = {
     quote: "",
     backgroundUrl: "",
-    photosBy: ""
+    photosBy: "",
+    photosUrl: ""
   };
 
   componentDidMount() {
@@ -34,10 +35,10 @@ class App extends React.Component {
         "https://api.unsplash.com/photos/random/?topics=nature&content_filter=low&orientation=landscape&client_id=eECFAGsCNO4ty-Gq1L3Ing_CoLwN2pn0PvIDjbEtr6k"
       )
       .then((response) => {
-        console.log(response.data)
         this.setState({
           backgroundUrl: response.data.urls.full,
-          photosBy: response.data.user.name
+          photosBy: response.data.user.name,
+          photosUrl: response.data.user.links.html
         });
       })
       .catch((error) => {
@@ -62,8 +63,8 @@ class App extends React.Component {
           </button>
         </div>
         <div className="credits">
-            <h5>Photos by {this.state.photosBy} on</h5>
-            <a className="unsplash-tag" href="https://unsplash.com/" target="_blank">Unsplash</a>
+            <h5>Photos by</h5>
+            <a className="unsplash-tag" href={`${this.state.photosUrl}?utm_source=Random_Quote_For_You&utm_medium=referral`} target="_blank">{this.state.photosBy}</a>
         </div>
       </div>
     );
