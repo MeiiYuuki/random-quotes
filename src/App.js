@@ -64,7 +64,7 @@ class App extends React.Component {
         </div>
         <div className="credits">
             <h5>Photos by</h5>
-            <a className="unsplash-tag" href={`${this.state.photosUrl}?utm_source=Random_Quote_For_You&utm_medium=referral`} target="_blank">{this.state.photosBy}</a>
+            <a className="unsplash-tag" href={`${this.state.photosUrl}?utm_source=Random_Quote_For_You&utm_medium=referral`} target="_blank" rel="noreferrer">{this.state.photosBy}</a>
         </div>
       </div>
     );

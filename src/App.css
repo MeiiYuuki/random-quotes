@@ -128,6 +128,15 @@
 
   .credits a{
     color: black;
-    font-weight: bold;
+    font-weight: 550;
     font-size: 10pt;
+    transition: .3s ease all;
+    -webkit-transition: .3s ease all;
+    -moz-transition: .3s ease all;
+    -ms-transition: .3s ease all;
+    -o-transition: .3s ease all;
+  }
+
+  .credits a:hover{
+    scale: 102%
   }
